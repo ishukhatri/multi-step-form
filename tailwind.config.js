@@ -11,6 +11,11 @@ module.exports = {
         "theme-blue": "#483EFF",
         "theme-sky-blue": "#BEE2FD",
         "theme-denim": "#022959",
+        "theme-very-light-grey": "#F8F9FF",
+        "theme-white": "#FFFFFF",
+        "theme-light-grey": "#D6D9E6",
+        "theme-grey": "#9699AA",
+        "theme-purple": "#483EFF",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
