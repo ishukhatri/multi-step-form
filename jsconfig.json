@@ -1,7 +1,14 @@
 {
   "compilerOptions": {
+    "target": "es6",
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@components/*": ["src/app/components/*"],
+      "@contexts/*": ["src/app/contexts/*"],
+      "@hooks/*": ["src/app/hooks/*"],
+      "@lib/*": ["src/lib/*"],
+      "@app/*": ["src/app/*"]
     }
   }
 }
