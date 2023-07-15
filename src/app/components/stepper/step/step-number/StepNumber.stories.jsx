@@ -1,7 +1,7 @@
 import StepNumber from "./StepNumber";
 
 export default {
-  title: "Components/StepNumber",
+  title: "Components/Stepper/Step/StepNumber",
   component: StepNumber,
 };
 

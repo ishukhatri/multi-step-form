@@ -6,6 +6,13 @@ const formSlice = createSlice({
     totalSteps: 4,
     currentStep: 3,
     completedSteps: [],
+    steps: [
+      { title: "your info", stepIndex: 1 },
+      { title: "select plan", stepIndex: 2 },
+      { title: "add-ons", stepIndex: 3 },
+      { title: "summary", stepIndex: 4 },
+    ],
+
     formData: {
       step1: {
         name: "",

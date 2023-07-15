@@ -1,6 +1,6 @@
 import React from "react";
 
-const StepNumber = ({ number, done, inProgress }) => {
+const StepNumber = ({ stepNumber, inProgress }) => {
   return (
     <div
       className={`flex items-center justify-center rounded-full text-sm font-bold 
@@ -8,7 +8,7 @@ const StepNumber = ({ number, done, inProgress }) => {
         inProgress ? "bg-theme-sky-blue text-theme-denim" : "bg-theme-gray"
       }`}
     >
-      {number}
+      {stepNumber}
     </div>
   );
 };
