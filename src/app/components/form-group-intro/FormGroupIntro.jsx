@@ -2,11 +2,9 @@ import React from "react";
 
 const FormGroupIntro = ({ title, description }) => {
   return (
-    <div className="">
-      <div className="font-bold text-2xl leading-7 text-theme-denim">
-        {title}
-      </div>
-      <div className="mt-2 font-normal text-base text-theme-grey">
+    <div className="flex-col justify-center items-start gap-2 inline-flex">
+      <div className="font-bold text-2xl text-theme-denim">{title}</div>
+      <div className="font-normal text-base text-theme-grey leading-6">
         {description}
       </div>
     </div>
