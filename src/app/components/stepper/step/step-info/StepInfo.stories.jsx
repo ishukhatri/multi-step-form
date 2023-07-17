@@ -5,4 +5,4 @@ export default {
   component: StepInfo,
 };
 
-export const Desktop = () => <StepInfo stepIndex={1} stepName={"Your Info"} />;
+export const Desktop = () => <StepInfo stepNumber={1} stepName={"Your Info"} />;

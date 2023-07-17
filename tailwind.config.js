@@ -26,6 +26,13 @@ module.exports = {
         "mobile-bg-image": "url(/assets/images/bg-sidebar-mobile.svg)",
         "desktop-bg-image": "url(path_to_image)",
       },
+      // This font declaration is unnecessary in the theme configuration since we have already applied the custom
+      // font to the entire body of the application. As a result, there is no need to define the "ubuntu" font
+      // family explicitly here, as it's automatically applied to all elements. The font stack used includes
+      // "var(--font-ubuntu)" as the primary font, followed by a fallback of "sans-serif".
+      // fontFamily: {
+      //   ubuntu: ["var(--font-ubuntu)", "sans-serif"],
+      // },
     },
   },
 

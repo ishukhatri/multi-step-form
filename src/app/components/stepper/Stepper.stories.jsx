@@ -11,3 +11,15 @@ export default {
 };
 
 export const mobile = () => <Stepper />;
+mobile.parameters = {
+  viewport: {
+    defaultViewport: "mobile",
+  },
+};
+
+export const desktop = () => <Stepper />;
+desktop.parameters = {
+  viewport: {
+    defaultViewport: "desktop",
+  },
+};
