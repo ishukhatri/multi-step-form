@@ -1,18 +1,23 @@
 import React from "react";
-import Image from "next/image";
 
-const PlanBox = ({ name, rate, extra, iconPath }) => {
+const PlanBox = ({ plan, checked, onChange }) => {
+  const { name, rate, extra, iconPath, value } = plan;
+
   return (
-    <div
+    <label
       className="flex justify-start items-start pt-[14px] pb-[18px] px-4 rounded-lg 
-    hover:bg-theme-very-light-grey border border-theme-light-grey hover:border-theme-purple"
+      hover:bg-theme-very-light-grey border border-theme-light-grey hover:border-theme-purple"
     >
-      <Image
-        src={"/assets/images/icon-arcade.svg"}
-        width={40}
-        height={40}
-      ></Image>
-      <div className="ml-[14px]">
+      <input
+        type="radio"
+        name="plan"
+        value={value}
+        checked={checked}
+        onChange={onChange}
+        className="hidden"
+      />
+      <Image src={iconPath} width={40} height={40} alt={name} />
+      <div className="ml-4">
         <div className="font-medium text-theme-denim text-base leading-4">
           {name}
         </div>
@@ -25,7 +30,7 @@ const PlanBox = ({ name, rate, extra, iconPath }) => {
           </div>
         )}
       </div>
-    </div>
+    </label>
   );
 };
 
