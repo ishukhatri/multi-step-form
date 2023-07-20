@@ -11,11 +11,11 @@ const PlanBox = ({ planInfo, billingCycle }) => {
         <div className="font-medium text-theme-denim text-base leading-4">
           {name}
         </div>
-        <div className="text-theme-grey font-normal text-sm leading-5 pt-2">
+        <div className="text-theme-grey text-sm font-normal leading-tight pt-2">
           ${billingCycle === "monthly" ? `${monthly}/mo` : `${yearly}/yr`}
         </div>
         {billingCycle === "yearly" && (
-          <div className="font-normal text-xs text-theme-denim pt-1">
+          <div className="text-xs font-normal leading-tight text-theme-denim pt-1">
             {extra}
           </div>
         )}
