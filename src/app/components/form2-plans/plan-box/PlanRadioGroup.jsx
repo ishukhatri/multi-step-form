@@ -1,40 +1,65 @@
-import React from "react";
-import { useForm, Controller } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import PlanBox from "./PlanBox";
 
-const schema = yup.object().shape({
-  plan: yup.string().required("Please select a plan"),
-});
+const PlanRadioGroup = ({ billingCycle }) => {
+  const [selectedPlan, setSelectedPlan] = useState("");
 
-const RadioGroup = () => {
-  const { handleSubmit, control, formState } = useForm({
-    resolver: yupResolver(schema),
-  });
-  const { errors } = formState;
+  const { handleSubmit } = useForm({});
 
-  const onSubmit = (data) => {
-    console.log(data.plan);
+  const onSubmit = () => {
+    console.log(selectedPlan);
   };
 
+  const plans = [
+    {
+      name: "Arcade",
+      monthly: 9,
+      yearly: 90,
+      extra: "2 months free",
+      iconPath: "/assets/images/icon-arcade.svg",
+    },
+    {
+      name: "Advanced",
+      monthly: 12,
+      yearly: 120,
+      extra: "2 months free",
+      iconPath: "/assets/images/icon-advanced.svg",
+    },
+    {
+      name: "Pro",
+      monthly: 15,
+      yearly: 150,
+      extra: "2 months free",
+      iconPath: "/assets/images/icon-pro.svg",
+    },
+  ];
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <Controller
-        name="plan"
-        control={control}
-        defaultValue=""
-        render={({ field }) => (
-          <>
-            <PlanBox name="Plan 1" rate="$10" iconPath="/path/to/plan1.png" />
-            <PlanBox name="Plan 2" rate="$20" iconPath="/path/to/plan2.png" />
-            {errors.plan && <p>{errors.plan.message}</p>}
-            <input type="submit" />
-          </>
-        )}
-      />
-      {/* billing plan switch */}
+    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3">
+      {plans.map((plan) => (
+        <label
+          key={plan.name}
+          className="flex justify-start items-start pt-[14px] pb-[18px] px-4 rounded-lg 
+          hover:bg-theme-very-light-grey border border-theme-light-grey hover:border-theme-purple"
+        >
+          <input
+            type="radio"
+            name="plan"
+            value={plan.name}
+            checked={selectedPlan === plan.name}
+            onChange={(e) => {
+              console.log(e.target.value);
+              setSelectedPlan(e.target.value);
+            }}
+            className="hidden"
+          />
+          <PlanBox planInfo={plan} billingCycle={billingCycle} />
+        </label>
+      ))}
+      <input type="submit" />
     </form>
   );
 };
 
-export default RadioGroup;
+export default PlanRadioGroup;
