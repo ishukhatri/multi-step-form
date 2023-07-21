@@ -5,9 +5,9 @@ const PlanBox = ({ planInfo, billingCycle }) => {
   const { name, monthly, yearly, extra, iconPath } = planInfo;
 
   return (
-    <>
+    <div className="flex gap-4 flex-row md:flex-col md:gap-10 justify-start ">
       <Image src={iconPath} width={40} height={40} alt={name} />
-      <div className="ml-4">
+      <div className="">
         <div className="font-medium text-theme-denim text-base leading-4">
           {name}
         </div>
@@ -20,7 +20,7 @@ const PlanBox = ({ planInfo, billingCycle }) => {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 };
 

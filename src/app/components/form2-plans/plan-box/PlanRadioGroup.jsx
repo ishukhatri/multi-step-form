@@ -37,30 +37,36 @@ const PlanRadioGroup = ({ billingCycle }) => {
   ];
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3">
-      {plans.map((plan) => (
-        <label
-          key={plan.name}
-          className="flex justify-start items-start pt-[14px] pb-[18px] px-4 rounded-lg 
-          hover:bg-theme-very-light-grey border border-theme-light-grey hover:border-theme-purple"
-        >
-          <input
-            type="radio"
-            name="plan"
-            value={plan.name}
-            checked={selectedPlan === plan.name}
-            onChange={(e) => {
-              console.log(e.target.value);
-              setSelectedPlan(e.target.value);
-            }}
-            className="hidden"
-          />
-          <PlanBox planInfo={plan} billingCycle={billingCycle} />
-        </label>
-      ))}
+    <>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="flex flex-col md:flex-row md:gap-5 gap-3"
+      >
+        {plans.map((plan) => (
+          <label
+            key={plan.name}
+            className="flex justify-start items-start pt-[14px] pb-[18px] px-4 rounded-lg 
+          hover:bg-theme-very-light-grey border border-theme-light-grey hover:border-theme-purple 
+          md:min-w-[140px] md:min-h-[160px]"
+          >
+            <input
+              type="radio"
+              name="plan"
+              value={plan.name}
+              checked={selectedPlan === plan.name}
+              onChange={(e) => {
+                console.log(e.target.value);
+                setSelectedPlan(e.target.value);
+              }}
+              className="hidden"
+            />
+            <PlanBox planInfo={plan} billingCycle={billingCycle} />
+          </label>
+        ))}
+        <input type="submit" />
+      </form>
       <SwitchToggle></SwitchToggle>
-      <input type="submit" />
-    </form>
+    </>
   );
 };
 
