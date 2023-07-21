@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import PlanBox from "./PlanBox";
+import SwitchToggle from "../billing-period-selector/SwitchToggle";
 
 const PlanRadioGroup = ({ billingCycle }) => {
   const [selectedPlan, setSelectedPlan] = useState("");
@@ -57,6 +58,7 @@ const PlanRadioGroup = ({ billingCycle }) => {
           <PlanBox planInfo={plan} billingCycle={billingCycle} />
         </label>
       ))}
+      <SwitchToggle></SwitchToggle>
       <input type="submit" />
     </form>
   );
