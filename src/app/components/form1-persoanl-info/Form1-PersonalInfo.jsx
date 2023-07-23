@@ -12,30 +12,6 @@ const Form = () => {
     mode: "onChange",
   });
 
-  /*
-  <div className="Group5 w-[295px] h-[203px] relative">
-<div className="Group4 w-[295px] h-[57px] left-0 top-0 absolute flex-col justify-center items-start gap-[3px] inline-flex">
-<div className="Name text-sky-950 text-xs font-normal">Name</div>
-<div className="Group3 w-[295px] h-10 relative flex-col justify-start items-start flex">
-<div className="Rectangle w-[295px] h-10 bg-white rounded border border-gray-300" />
-<div className="EGStephenKing text-gray-400 text-[15px] font-medium">e.g. Stephen King</div>
-</div>
-</div>
-<div className="Group4Copy w-[295px] h-[57px] left-0 top-[73px] absolute flex-col justify-center items-start gap-[3px] inline-flex">
-<div className="EmailAddress text-sky-950 text-xs font-normal">Email Address</div>
-<div className="Group3 w-[295px] h-10 relative flex-col justify-start items-start flex">
-<div className="Rectangle w-[295px] h-10 bg-white rounded border border-gray-300" />
-<div className="EGStephenkingLor text-gray-400 text-[15px] font-medium">e.g. stephenking@lorem.com</div>
-</div>
-</div>
-<div className="Group4Copy2 w-[295px] h-[57px] left-0 top-[146px] absolute flex-col justify-center items-start gap-[3px] inline-flex">
-<div className="PhoneNumber text-sky-950 text-xs font-normal">Phone Number</div>
-<div className="Group3 w-[295px] h-10 relative flex-col justify-start items-start flex">
-<div className="Rectangle w-[295px] h-10 bg-white rounded border border-gray-300" />
-<div className="EG1234567890 text-gray-400 text-[15px] font-medium">e.g. +1 234 567 890</div>
-</div>
-</div>
-</div>*/
   return (
     <>
       <form onSubmit={handleSubmit((data) => console.log(data))}>

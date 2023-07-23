@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import FormGroupIntro from "../common/form-group-intro/FormGroupIntro";
 
 const AddonsForm = ({ billingCycle }) => {
   const {
@@ -13,6 +14,8 @@ const AddonsForm = ({ billingCycle }) => {
     console.log(data);
   };
 
+  const title = "Pick add-ons";
+  const desc = "Add-ons help enhance your gaming experience.";
   const addons = [
     {
       name: "OnlineService",
@@ -38,39 +41,43 @@ const AddonsForm = ({ billingCycle }) => {
   ];
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="flex flex-col gap-3">
-        {addons.map((addon) => (
-          <label
-            key={addon.name}
-            className="flex flex-row items-center px-4 py-3 gap-4 bg-white rounded-lg border border-gray-300"
-          >
-            <input
-              type="checkbox"
-              name={`${addon.name}`} // Use a unique name for each checkbox
-              value="true" // Set a value for the checkbox
-              {...register(`${addon.name}`)} // Register the checkbox with useForm
-              className="h-5 w-5 checked:text-red-600 default:text-red-600 border-gray-300 rounded"
-            />
-            <div className="flex flex-col flex-1 gap-1 ">
-              <p className="text-sky-950 text-sm font-medium">
-                {addon.displayName}
-              </p>
-              <p className="text-gray-400 text-xs font-normal leading-tight">
-                {addon.desc}
-              </p>
-            </div>
-            <p className="text-right text-indigo-600 text-xs font-normal leading-tight">
-              +$
-              {billingCycle === "monthly"
-                ? `${addon.monthly}/mo`
-                : `${addon.yearly}/yr`}
-            </p>
-          </label>
-        ))}
-        <input type="submit" />
+    <div className="flex flex-col gap-6">
+      <div>
+        <FormGroupIntro title={title} description={desc}></FormGroupIntro>
       </div>
-    </form>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="flex flex-col gap-3">
+          {addons.map((addon) => (
+            <label
+              key={addon.name}
+              className="flex flex-row items-center px-4 py-3 gap-4 bg-white rounded-lg border border-gray-300"
+            >
+              <input
+                type="checkbox"
+                name={`${addon.name}`} // Use a unique name for each checkbox
+                value="true" // Set a value for the checkbox
+                {...register(`${addon.name}`)} // Register the checkbox with useForm
+                className="h-5 w-5 checked:text-red-600 default:text-red-600 border-gray-300 rounded"
+              />
+              <div className="flex flex-col flex-1 gap-1 ">
+                <p className="text-sky-950 text-sm font-medium">
+                  {addon.displayName}
+                </p>
+                <p className="text-gray-400 text-xs font-normal leading-tight">
+                  {addon.desc}
+                </p>
+              </div>
+              <p className="text-right text-indigo-600 text-xs font-normal leading-tight">
+                +$
+                {billingCycle === "monthly"
+                  ? `${addon.monthly}/mo`
+                  : `${addon.yearly}/yr`}
+              </p>
+            </label>
+          ))}
+        </div>
+      </form>
+    </div>
   );
 };
 
