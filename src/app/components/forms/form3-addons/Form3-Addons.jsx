@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import FormGroupIntro from "../common/form-group-intro/FormGroupIntro";
+import AddonBox from "./addon-box/AddonBox";
+import FormLayout from "../FormLayout";
 
 const AddonsForm = ({ billingCycle }) => {
   const {
@@ -41,10 +42,7 @@ const AddonsForm = ({ billingCycle }) => {
   ];
 
   return (
-    <div className="flex flex-col gap-6">
-      <div>
-        <FormGroupIntro title={title} description={desc}></FormGroupIntro>
-      </div>
+    <FormLayout title={title} description={desc}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col gap-3">
           {addons.map((addon) => (
@@ -59,25 +57,12 @@ const AddonsForm = ({ billingCycle }) => {
                 {...register(`${addon.name}`)} // Register the checkbox with useForm
                 className="h-5 w-5 checked:text-red-600 default:text-red-600 border-gray-300 rounded"
               />
-              <div className="flex flex-col flex-1 gap-1 ">
-                <p className="text-sky-950 text-sm font-medium">
-                  {addon.displayName}
-                </p>
-                <p className="text-gray-400 text-xs font-normal leading-tight">
-                  {addon.desc}
-                </p>
-              </div>
-              <p className="text-right text-indigo-600 text-xs font-normal leading-tight">
-                +$
-                {billingCycle === "monthly"
-                  ? `${addon.monthly}/mo`
-                  : `${addon.yearly}/yr`}
-              </p>
+              <AddonBox addon={addon} billingCycle={billingCycle}></AddonBox>
             </label>
           ))}
         </div>
       </form>
-    </div>
+    </FormLayout>
   );
 };
 

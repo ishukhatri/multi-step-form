@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
       {/* <body className={`${Ubuntu.variable}`}> */}
       <body>
         <Provider store={store}>
-          <div className="relative bg-theme-sky-blue min-h-screen bg-mobile-bg-image bg-no-repeat bg-contain p-4">
+          <div className="relative bg-theme-light-sky-blue min-h-screen bg-mobile-bg-image bg-no-repeat bg-contain p-4">
             {children}
           </div>
         </Provider>

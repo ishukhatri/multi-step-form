@@ -2,12 +2,12 @@
 import React from "react";
 
 import { useSelector } from "react-redux";
-import Form from "../components/form1-persoanl-info/Form1-PersonalInfo";
-import PlanRadioGroup from "../components/form2-plans/plan-box/PlanRadioGroup";
-import AddonsForm from "../components/form3-addons/AddonsForm";
-import ThankYou from "../components/thank-you/ThankYou";
+import PlanRadioGroup from "@components/forms/form2-plans/Form2-Plans";
+import AddonsForm from "@components/forms/form3-addons/Form3-Addons";
+import ThankYou from "@components/forms/thank-you/ThankYou";
 import Stepper from "../components/stepper/Stepper";
-import FinishingUp from "../components/finishing-up/FinishingUp";
+import FinishingUp from "@components/forms/finishing-up/FinishingUp";
+import Form from "@components/forms/form1-persoanl-info/Form1-PersonalInfo";
 
 const Main = () => {
   const currentStepIndex = useSelector((state) => state.form.currentStep);

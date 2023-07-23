@@ -1,4 +1,4 @@
-import SwitchToggle from "./SwitchToggle";
+import SwitchToggle from "./BillingCycleToggle";
 
 export default {
   title: "Components/SwitchToggle",

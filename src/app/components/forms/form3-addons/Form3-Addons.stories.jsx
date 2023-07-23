@@ -1,5 +1,5 @@
 import React from "react";
-import AddonsForm from "./AddonsForm";
+import AddonsForm from "./Form3-Addons";
 
 export default {
   title: "Components/form2-addons/AddonsForm",

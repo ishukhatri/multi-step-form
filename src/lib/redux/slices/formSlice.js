@@ -4,7 +4,7 @@ const formSlice = createSlice({
   name: "form",
   initialState: {
     totalSteps: 4,
-    currentStep: 3,
+    currentStep: 1,
     completedSteps: [],
     steps: [
       { title: "your info", stepIndex: 1 },

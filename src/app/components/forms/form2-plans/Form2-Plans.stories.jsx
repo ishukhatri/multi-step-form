@@ -1,5 +1,5 @@
 import React from "react";
-import PlanRadioGroup from "./PlanRadioGroup";
+import PlanRadioGroup from "./Form2-Plans";
 
 export default {
   title: "Components/form2-plans",
