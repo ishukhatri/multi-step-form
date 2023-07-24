@@ -8,15 +8,15 @@ const FormLayout = ({ title, description, onSubmit, children }) => {
   const currentStepIndex = useSelector((state) => state.form.currentStep);
 
   return (
-    <div className="flex flex-col gap-6">
-      <div className="bg-white rounded-[10px] shadow px-6 py-8 flex flex-col flex-grow gap-6">
+    <div className="flex flex-col gap-6 justify-between">
+      <div className="bg-white rounded-[10px] shadow px-6 py-8 flex flex-col  gap-6">
         <FormGroupIntro
           title={title}
           description={description}
         ></FormGroupIntro>
         {children}
       </div>
-      <div id="button-bar" className="flex-shrink-0">
+      <div id="button-bar" className="">
         {console.log("currentStepIndex1", currentStepIndex)}
         {currentStepIndex > 1 && (
           <button onClick={() => setCurrentStep(currentStep - 1)}>Back</button>
