@@ -16,7 +16,7 @@ const Main = () => {
       <div className="flex items-center mx-auto mt-8">
         <Stepper></Stepper>
       </div>
-      <div className="bg-white rounded-[10px] shadow px-6 py-8">
+      <div className="">
         {currentStepIndex == 1 && <Form />}
         {currentStepIndex == 2 && <PlanRadioGroup />}
         {currentStepIndex == 3 && <AddonsForm />}

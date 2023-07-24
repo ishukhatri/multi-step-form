@@ -2,7 +2,7 @@ import React from "react";
 
 const AddonBox = ({ addon, billingCycle }) => {
   return (
-    <div>
+    <div className="flex flex-row grow items-center">
       <div className="flex flex-col flex-1 gap-1 ">
         <p className="text-sky-950 text-sm font-medium">{addon.displayName}</p>
         <p className="text-gray-400 text-xs font-normal leading-tight">

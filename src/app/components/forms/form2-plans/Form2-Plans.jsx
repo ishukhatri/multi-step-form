@@ -38,7 +38,6 @@ const PlanRadioGroup = ({ billingCycle }) => {
 
   return (
     <>
-      <div></div>
       <div>
         <form
           onSubmit={handleSubmit(onSubmit)}

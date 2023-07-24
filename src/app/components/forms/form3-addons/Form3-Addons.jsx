@@ -7,12 +7,11 @@ const AddonsForm = ({ billingCycle }) => {
   const {
     handleSubmit,
     control,
-    formState: { errors },
     register, // Destructure the register function
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    console.log("inner on submit called!!", data);
   };
 
   const title = "Pick add-ons";
@@ -42,8 +41,12 @@ const AddonsForm = ({ billingCycle }) => {
   ];
 
   return (
-    <FormLayout title={title} description={desc}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <FormLayout
+      title={title}
+      description={desc}
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      <form>
         <div className="flex flex-col gap-3">
           {addons.map((addon) => (
             <label
