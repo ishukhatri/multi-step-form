@@ -22,12 +22,13 @@ const FormLayout = ({ title, description, onSubmit, children }) => {
       >
         <div className="flex justify-between">
           {console.log("currentStepIndex1", currentStepIndex)}
-          {currentStepIndex > 1 && (
-            <button onClick={() => dispatch(setStep(currentStepIndex - 1))}>
-              Back
-            </button>
-          )}
-          {currentStepIndex < 4 && (
+          <button
+            onClick={() => dispatch(setStep(currentStepIndex - 1))}
+            className={`curentStepIndex < 2 ? "hidden" :""`}
+          >
+            Back
+          </button>
+          {currentStepIndex < 5 && (
             <button
               className="rounded bg-theme-denim py-3 px-4 text-white text-sm leading-4 font-medium"
               onClick={() => {
@@ -38,7 +39,7 @@ const FormLayout = ({ title, description, onSubmit, children }) => {
               Next
             </button>
           )}
-          {currentStepIndex === 4 && <button onClick={onSubmit}>Submit</button>}
+          {currentStepIndex === 5 && <button onClick={onSubmit}>Submit</button>}
         </div>
       </div>
     </>
