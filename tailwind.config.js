@@ -10,7 +10,8 @@ module.exports = {
       colors: {
         "theme-blue": "#483EFF",
         "theme-sky-blue": "#BEE2FD",
-        "theme-light-sky-blue": "#EFF6FF",
+        // "theme-light-sky-blue": "#EFF6FF"
+        "theme-light-sky-blue": "#87CEFA",
         "theme-denim": "#022959",
         "theme-very-light-grey": "#F8F9FF",
         "theme-white": "#FFFFFF",

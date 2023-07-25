@@ -12,7 +12,7 @@ import Form from "@components/forms/form1-persoanl-info/Form1-PersonalInfo";
 const Main = () => {
   const currentStepIndex = useSelector((state) => state.form.currentStep);
   return (
-    <div className="flex flex-col gap-8 h-screen">
+    <div className="flex flex-col gap-8 h-screen relative">
       <div className="flex items-center mx-auto mt-8">
         <Stepper></Stepper>
       </div>

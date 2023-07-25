@@ -3,11 +3,7 @@
 import { Provider } from "react-redux";
 import store from "@lib/redux/store";
 import "./globals.css";
-import { Inter } from "next/font/google";
-import { Ubuntu } from "next/font/google";
-// import { Ubuntu } from "@app/fonts.js";
-
-const inter = Inter({ subsets: ["latin"] });
+import { Ubuntu } from "@app/fonts.js";
 
 // export const metadata = {
 //   title: "Create Next App",
@@ -17,11 +13,10 @@ const inter = Inter({ subsets: ["latin"] });
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      {/* <body className={Ubuntu.className}> */}
-      {/* <body className={`${Ubuntu.variable}`}> */}
-      <body>
+      <body className={`${Ubuntu.className} bg-theme-light-sky-blue`}>
+        {/* <body className={`${Ubuntu.variable}`}> */}
         <Provider store={store}>
-          <div className="relative bg-theme-light-sky-blue min-h-screen bg-mobile-bg-image bg-no-repeat bg-contain p-4">
+          <div className="relative bg-mobile-bg-image bg-no-repeat bg-contain p-4">
             {children}
           </div>
         </Provider>

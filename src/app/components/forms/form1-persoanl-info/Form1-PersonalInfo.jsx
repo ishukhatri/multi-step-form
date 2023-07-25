@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
+import FormLayout from "../FormLayout";
 
 const Form = () => {
   const {
@@ -13,7 +14,10 @@ const Form = () => {
   });
 
   return (
-    <>
+    <FormLayout
+      title={"Personal info"}
+      description={"Please provide your name, email address, and phone number."}
+    >
       <form onSubmit={handleSubmit((data) => console.log(data))}>
         <div className="flex-col justify-center items-start gap-4 inline-flex w-full">
           <div className="relative w-full flex-col justify-center items-start gap-1 inline-flex">
@@ -38,7 +42,7 @@ const Form = () => {
               </p>
             )}
           </div>
-          {/* <div className=" min-w-full flex-col justify-center items-start gap-1 inline-flex text-theme-denim text-xs font-normal">
+          <div className=" min-w-full flex-col justify-center items-start gap-1 inline-flex text-theme-denim text-xs font-normal">
             <label htmlFor="email">Email Address</label>
             <input
               {...register("email", { required: true })}
@@ -55,12 +59,10 @@ const Form = () => {
               className="h-10 bg-white rounded border border-gray-300 min-w-full"
             />
             {errors.phone && <p>Please enter numbers only for phone.</p>}
-          </div> */}
-          <input type="submit" />
+          </div>
         </div>
       </form>
-      {/* <DevTool control={control} /> */}
-    </>
+    </FormLayout>
   );
 };
 
