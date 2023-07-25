@@ -38,6 +38,48 @@ const AddonsForm = ({ billingCycle }) => {
       monthly: 2,
       yearly: 20,
     },
+    {
+      name: "OnlineService",
+      displayName: "Online service",
+      desc: "Access to multiplayer games",
+      monthly: 1,
+      yearly: 10,
+    },
+    {
+      name: "LargerStorage",
+      displayName: "Larger storage",
+      desc: "Extra 1TB of cloud save",
+      monthly: 2,
+      yearly: 20,
+    },
+    {
+      name: "CustomizableProfile",
+      displayName: "Customizable profile",
+      desc: "Custom theme on your profile",
+      monthly: 2,
+      yearly: 20,
+    },
+    {
+      name: "OnlineService",
+      displayName: "Online service",
+      desc: "Access to multiplayer games",
+      monthly: 1,
+      yearly: 10,
+    },
+    {
+      name: "LargerStorage",
+      displayName: "Larger storage",
+      desc: "Extra 1TB of cloud save",
+      monthly: 2,
+      yearly: 20,
+    },
+    {
+      name: "CustomizableProfile",
+      displayName: "Customizable profile",
+      desc: "Custom theme on your profile",
+      monthly: 2,
+      yearly: 20,
+    },
   ];
 
   return (

@@ -13,11 +13,15 @@ import { Ubuntu } from "@app/fonts.js";
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${Ubuntu.className} bg-theme-light-sky-blue`}>
+      <body
+        className={`${Ubuntu.className} bg-theme-light-sky-blue grid place-items-center min-h-screen`}
+      >
         {/* <body className={`${Ubuntu.variable}`}> */}
         <Provider store={store}>
-          <div className="relative bg-mobile-bg-image bg-no-repeat bg-contain p-4">
-            {children}
+          <div className="md:p-4 md:w-[940px] md:bg-white">
+            <main className="bg-mobile-bg-image md:bg-desktop-bg-image bg-no-repeat bg-contain p-4 relative">
+              {children}
+            </main>
           </div>
         </Provider>
       </body>

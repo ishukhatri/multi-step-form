@@ -9,7 +9,7 @@ const FormLayout = ({ title, description, onSubmit, children }) => {
 
   return (
     <>
-      <div className="flex flex-col gap-6 justify-between bg-white rounded-[10px] shadow px-6 py-8 mb-24">
+      <div className="flex flex-col gap-6 justify-between bg-white rounded-[10px] shadow px-6 py-8 mb-24 md:mr-20">
         <FormGroupIntro
           title={title}
           description={description}
@@ -18,7 +18,7 @@ const FormLayout = ({ title, description, onSubmit, children }) => {
       </div>
       <div
         id="button-bar"
-        className="bg-white fixed bottom-0 left-0 w-screen p-4"
+        className="bg-white fixed md:static bottom-0 left-0 w-screen md:w-auto p-4"
       >
         <div className="flex justify-between">
           {console.log("currentStepIndex1", currentStepIndex)}
@@ -36,7 +36,7 @@ const FormLayout = ({ title, description, onSubmit, children }) => {
                 dispatch(setStep(currentStepIndex + 1));
               }}
             >
-              Next
+              Next Step
             </button>
           )}
           {currentStepIndex === 5 && <button onClick={onSubmit}>Submit</button>}

@@ -27,7 +27,7 @@ module.exports = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
 
         "mobile-bg-image": "url(/assets/images/bg-sidebar-mobile.svg)",
-        "desktop-bg-image": "url(path_to_image)",
+        "desktop-bg-image": "url(/assets/images/bg-sidebar-desktop.svg)",
       },
       // This font declaration is unnecessary in the theme configuration since we have already applied the custom
       // font to the entire body of the application. As a result, there is no need to define the "ubuntu" font
