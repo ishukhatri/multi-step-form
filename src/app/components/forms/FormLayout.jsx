@@ -1,22 +1,23 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import FormGroupIntro from "../common/form-group-intro/FormGroupIntro";
 import { setStep } from "@/lib/redux/slices/formSlice";
+import { useDispatch, useSelector } from "react-redux";
+
+import FormGroupIntro from "../common/form-group-intro/FormGroupIntro";
 
 const FormLayout = ({ title, description, onSubmit, children }) => {
   const dispatch = useDispatch();
   const currentStepIndex = useSelector((state) => state.form.currentStep);
 
   return (
-    <div className="form-layout">
-      <div className="form flex flex-col gap-6 justify-between bg-white rounded-[10px]">
+    <div className="h-full flex flex-col justify-between">
+      <div className="form   gap-6   bg-white rounded-[10px]">
         <FormGroupIntro
           title={title}
           description={description}
         ></FormGroupIntro>
         {children}
       </div>
-      <div className="button-bar bg-white fixed md:static bottom-0 left-0 w-screen md:w-auto p-4">
+      <div className="button-bar bg-white fixed md:static bottom-0 left-0 w-screen md:w-auto p-4 md:p-0">
         <div className="flex justify-between">
           {console.log("currentStepIndex1", currentStepIndex)}
           <button
