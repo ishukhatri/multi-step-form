@@ -16,9 +16,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${Ubuntu.className} bg-theme-light-sky-blue grid place-items-center min-h-screen`}
       >
-        <Provider store={store}>
-          <div className="md:p-4 md:w-[940px] md:bg-white">{children}</div>
-        </Provider>
+        <Provider store={store}>{children}</Provider>
       </body>
     </html>
   );

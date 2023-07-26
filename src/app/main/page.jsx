@@ -12,19 +12,21 @@ import Form from "@components/forms/form1-persoanl-info/Form1-PersonalInfo";
 const Main = () => {
   const currentStepIndex = useSelector((state) => state.form.currentStep);
   return (
-    <div className="flex flex-col gap-8 md:gap-0 h-screen md:h-auto md:flex-row ">
-      <div
-        className="rounded-[10px] md:w-[30%] flex items-center mx-auto mt-8 md:m-0 md:items-start
-      bg-mobile-bg-image md:bg-desktop-bg-image bg-cover bg-no-repeat md:pt-10 md:pl-8"
-      >
-        <Stepper></Stepper>
-      </div>
-      <div className="md:w-[70%]">
-        {currentStepIndex == 1 && <Form />}
-        {currentStepIndex == 2 && <PlanRadioGroup />}
-        {currentStepIndex == 3 && <AddonsForm />}
-        {currentStepIndex == 4 && <FinishingUp />}
-        {currentStepIndex == 5 && <ThankYou />}
+    <div className="outer-container md:p-4 md:w-[940px] md:h-[600px] md:bg-white">
+      <div className="inner-content-holder flex flex-col md:flex-row gap-8 md:gap-0 h-screen md:h-full ">
+        <div
+          className="side-bar-with-stepper rounded-[10px] md:w-[30%] flex items-center md:pt-10 md:pl-8
+          md:items-start bg-mobile-bg-image md:bg-desktop-bg-image bg-cover bg-no-repeat"
+        >
+          <Stepper></Stepper>
+        </div>
+        <div className="form-n-button-holder md:w-[70%] items-center flex">
+          {currentStepIndex == 1 && <Form />}
+          {currentStepIndex == 2 && <PlanRadioGroup />}
+          {currentStepIndex == 3 && <AddonsForm />}
+          {currentStepIndex == 4 && <FinishingUp />}
+          {currentStepIndex == 5 && <ThankYou />}
+        </div>
       </div>
     </div>
   );
