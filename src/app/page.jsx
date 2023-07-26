@@ -16,11 +16,12 @@ const Main = () => {
   return (
     <div
       className="outer-container md:p-4 md:w-[940px] md:h-[600px] md:bg-white flex flex-col 
-    md:flex-row gap-8 md:gap-0 h-screen md:rounded-xl"
+    md:flex-row gap-8 md:gap-0 h-screen md:rounded-xl bg-mobile-bg-image bg-no-repeat md:bg-none"
     >
       <div
-        className="side-bar-with-stepper rounded-[10px] md:w-[30%] flex items-center md:pt-10 md:pl-8
-          md:items-start bg-mobile-bg-image md:bg-desktop-bg-image bg-cover bg-no-repeat"
+        className="side-bar-with-stepper md:rounded-[10px] md:w-[30%] flex items-center 
+        justify-center md:justify-start pt-10 md:pl-8 md:items-start  md:bg-desktop-bg-image 
+        md:bg-cover bg-no-repeat"
       >
         <Stepper></Stepper>
       </div>
