@@ -10,7 +10,7 @@ const FormLayout = ({ title, description, onSubmit, children }) => {
 
   return (
     <div className="h-full flex flex-col justify-between">
-      <div className="form mx-4 md:mx-0 gap-6 bg-white px-6 py-8 md:p-0 rounded-[10px]">
+      <div className="form flex flex-col mx-4 md:mx-0 gap-6 md:gap-8 bg-white px-6 py-8 md:p-0 rounded-[10px]">
         <FormGroupIntro
           title={title}
           description={description}

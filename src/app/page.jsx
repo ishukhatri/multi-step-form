@@ -15,22 +15,22 @@ const Main = () => {
 
   return (
     <div
-      className="outer-container md:p-4 md:w-[940px] md:h-[600px] md:bg-white flex flex-col 
-    md:flex-row gap-8 md:gap-0 h-screen md:rounded-xl bg-mobile-bg-image bg-no-repeat md:bg-none"
+      className="outer-container h-screen flex flex-col gap-8 bg-mobile-bg-image bg-contain bg-no-repeat
+      md:flex-row md:gap-0 md:p-4 md:w-[940px] md:h-[600px] md:bg-none md:bg-white md:shadow md:rounded-2xl "
     >
       <div
-        className="side-bar-with-stepper md:rounded-[10px] md:w-[30%] flex items-center 
-        justify-center md:justify-start pt-10 md:pl-8 md:items-start  md:bg-desktop-bg-image 
-        md:bg-cover bg-no-repeat"
+        className="stepper-container flex pt-10 justify-center
+        md:w-[30%] md:rounded-xl md:justify-start md:pl-8 md:items-start 
+        md:bg-desktop-bg-image md:bg-cover md:bg-no-repeat"
       >
         <Stepper></Stepper>
       </div>
-      <div className="form-n-button-holder md:w-[70%] md:px-20 md:mx-auto md:mt-10 md:mb-4">
-        {currentStepIndex == 1 && <Form />}
-        {currentStepIndex == 2 && <PlanRadioGroup />}
-        {currentStepIndex == 3 && <AddonsForm />}
-        {currentStepIndex == 4 && <FinishingUp />}
-        {currentStepIndex == 5 && <ThankYou />}
+      <div className="form-with-button-holder md:w-[70%] md:px-20 md:mx-auto md:mt-10 md:mb-4">
+        {currentStepIndex === 1 && <Form />}
+        {currentStepIndex === 2 && <PlanRadioGroup />}
+        {currentStepIndex === 3 && <AddonsForm />}
+        {currentStepIndex === 4 && <FinishingUp />}
+        {currentStepIndex === 5 && <ThankYou />}
       </div>
     </div>
   );
