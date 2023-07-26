@@ -8,18 +8,15 @@ const FormLayout = ({ title, description, onSubmit, children }) => {
   const currentStepIndex = useSelector((state) => state.form.currentStep);
 
   return (
-    <div>
-      <div className="flex flex-col gap-6 justify-between bg-white rounded-[10px] shadow px-6 py-8 mb-24 md:mr-20">
+    <div className="form-layout">
+      <div className="form flex flex-col gap-6 justify-between bg-white rounded-[10px]">
         <FormGroupIntro
           title={title}
           description={description}
         ></FormGroupIntro>
         {children}
       </div>
-      <div
-        id="button-bar"
-        className="bg-white fixed md:static bottom-0 left-0 w-screen md:w-auto p-4"
-      >
+      <div className="button-bar bg-white fixed md:static bottom-0 left-0 w-screen md:w-auto p-4">
         <div className="flex justify-between">
           {console.log("currentStepIndex1", currentStepIndex)}
           <button

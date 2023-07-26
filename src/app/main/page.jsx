@@ -20,7 +20,7 @@ const Main = () => {
         >
           <Stepper></Stepper>
         </div>
-        <div className="form-n-button-holder md:w-[70%] items-center flex">
+        <div className="form-n-button-holder md:w-[70%] items-center justify-center flex">
           {currentStepIndex == 1 && <Form />}
           {currentStepIndex == 2 && <PlanRadioGroup />}
           {currentStepIndex == 3 && <AddonsForm />}
