@@ -22,7 +22,7 @@ const FormLayout = ({ title, description, onSubmit, children }) => {
           {console.log("currentStepIndex1", currentStepIndex)}
           <button
             onClick={() => dispatch(setStep(currentStepIndex - 1))}
-            className={`curentStepIndex < 2 ? "hidden" :""`}
+            className={currentStepIndex < 2 ? "invisible" : ""}
           >
             Back
           </button>

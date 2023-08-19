@@ -22,10 +22,6 @@ module.exports = {
         "theme-red": "#EE374A",
       },
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-
         "mobile-bg-image": "url(/assets/images/bg-sidebar-mobile.svg)",
         "desktop-bg-image": "url(/assets/images/bg-sidebar-desktop.svg)",
       },

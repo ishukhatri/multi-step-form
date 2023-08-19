@@ -27,15 +27,20 @@
   },
   "devDependencies": {
     "@hookform/devtools": "^4.3.1",
-    "@storybook/addon-essentials": "^7.1.0",
-    "@storybook/addon-interactions": "^7.1.0",
-    "@storybook/addon-links": "^7.1.0",
-    "@storybook/addon-mdx-gfm": "^7.1.0",
+    "@hookform/resolvers": "^3.2.0",
+    "@reduxjs/toolkit": "^1.9.5",
+    "@storybook/addon-essentials": "^7.3.2",
+    "@storybook/addon-interactions": "^7.3.2",
+    "@storybook/addon-links": "^7.3.2",
+    "@storybook/addon-mdx-gfm": "^7.3.2",
     "@storybook/blocks": "^7.1.0",
-    "@storybook/nextjs": "^7.1.0",
+    "@storybook/nextjs": "^7.3.2",
     "@storybook/react": "^7.1.0",
     "@storybook/testing-library": "^0.2.0",
-    "eslint-plugin-storybook": "^0.6.12",
-    "storybook": "^7.1.0"
+    "eslint-plugin-storybook": "^0.6.13",
+    "react-hook-form": "^7.45.4",
+    "react-redux": "^8.1.2",
+    "storybook": "^7.3.2",
+    "yup": "^1.2.0"
   }
 }
