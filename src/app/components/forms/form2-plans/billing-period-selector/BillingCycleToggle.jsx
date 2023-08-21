@@ -1,36 +1,44 @@
 import React, { useState } from "react";
 
 const SwitchToggle = () => {
-  const [isMonthly, setIsMonthly] = useState(true);
+  const [isMonthly, setIsMonthly] = useState(false);
 
   const handleToggle = () => {
-    console.log("isMonthly", isMonthly);
-    setIsMonthly(!isMonthly);
+    setIsMonthly((prevIsMonthly) => {
+      console.log("isMonthly", prevIsMonthly);
+      const updatedIsMonthly = !prevIsMonthly;
+      console.log("isMonthlyAfterUpdate", updatedIsMonthly);
+      return updatedIsMonthly;
+    });
   };
 
   return (
     <label
       className="bg-theme-very-light-grey rounded-lg flex py-3 gap-6 justify-center
-    text-right text-theme-denim text-sm font-medium"
+      text-right text-theme-denim text-sm font-medium"
     >
       <input
         type="checkbox"
         checked={isMonthly}
-        onChange={handleToggle}
+        // onChange={handleToggle}
         className="hidden"
       />
-      <p>Monthly</p>
+      <p className={`${isMonthly ? "text-sky-950" : "text-gray-400"}`}>
+        Monthly
+      </p>
       <div
-        className="relative inline-block w-10 h-5 bg-theme-denim rounded-xl cursor-pointer"
+        className="relative w-10 h-5 bg-theme-denim rounded-xl cursor-pointer"
         onClick={handleToggle}
       >
         <div
-          className={`absolute top-0.5 left-0.5 w-4 h-4 ${
-            isMonthly ? "transform translate-x-5" : "transform translate-x-0"
-          } bg-white rounded-full transition-transform`}
+          className={`absolute top-1 left-1 w-3 h-3 transition-transform
+          ${isMonthly ? "transform translate-x-0" : "transform translate-x-5"}
+          bg-white rounded-full`}
         />
       </div>
-      <p>Yearly</p>
+      <p className={`${isMonthly ? "text-gray-400" : "text-sky-950"}`}>
+        Yearly
+      </p>
     </label>
   );
 };
