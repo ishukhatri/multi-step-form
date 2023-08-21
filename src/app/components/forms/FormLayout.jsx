@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import FormGroupIntro from "../common/form-group-intro/FormGroupIntro";
 
 const FormLayout = ({ title, description, onSubmit, children }) => {
-  const dispatch = useDispatch();
   const currentStepIndex = useSelector((state) => state.form.currentStep);
 
   return (
@@ -31,7 +30,6 @@ const FormLayout = ({ title, description, onSubmit, children }) => {
               className="rounded bg-theme-denim py-3 px-4 text-white text-sm leading-4 font-medium"
               onClick={() => {
                 onSubmit();
-                // dispatch(setStep(currentStepIndex + 1));
               }}
             >
               Next Step
