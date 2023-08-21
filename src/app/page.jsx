@@ -1,12 +1,12 @@
 "use client";
 import React from "react";
 
-import PlanRadioGroup from "@/components/forms/form2-plans/Form2-Plans";
-import AddonsForm from "@/components/forms/form3-addons/Form3-Addons";
-import ThankYou from "@/components/forms/thank-you/ThankYou";
-import Stepper from "@/components/stepper/Stepper";
-import FinishingUp from "@/components/forms/finishing-up/FinishingUp";
-import Form from "@/components/forms/form1-persoanl-info/Form1-PersonalInfo";
+import PlanRadioGroup from "@/app/components/forms/form2-plans/Form2-Plans";
+import AddonsForm from "@/app/components/forms/form3-addons/Form3-Addons";
+import ThankYou from "@/app/components/forms/thank-you/ThankYou";
+import Stepper from "@/app/components/stepper/Stepper";
+import FinishingUp from "@/app/components/forms/finishing-up/FinishingUp";
+import Form from "@/app/components/forms/form1-persoanl-info/Form1-PersonalInfo";
 
 import { useDispatch, useSelector } from "react-redux";
 
