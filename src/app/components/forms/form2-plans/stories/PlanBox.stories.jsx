@@ -1,4 +1,4 @@
-import PlanBox from "./PlanBox";
+import PlanBox from "./plan-box/PlanBox";
 
 export default {
   title: "Components/PlanBox",

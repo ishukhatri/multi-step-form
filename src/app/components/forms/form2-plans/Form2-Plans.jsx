@@ -1,18 +1,75 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import PlanBox from "./plan-box/PlanBox";
-import SwitchToggle from "./billing-period-selector/BillingCycleToggle";
 import FormLayout from "../FormLayout";
+import Image from "next/image";
 
-const PlanRadioGroup = ({ billingCycle }) => {
-  const [selectedPlan, setSelectedPlan] = useState("");
+const SwitchToggle = ({ isMonthly, onToggle }) => {
+  // const [isMonthly, setIsMonthly] = useState(false);
 
-  const { handleSubmit } = useForm({});
+  // const handleToggle = () => {
+  //   setIsMonthly((prevIsMonthly) => {
+  //     console.log("isMonthly", prevIsMonthly);
+  //     const updatedIsMonthly = !prevIsMonthly;
+  //     console.log("isMonthlyAfterUpdate", updatedIsMonthly);
+  //     return updatedIsMonthly;
+  //   });
+  // };
 
-  const onSubmit = () => {
-    console.log(selectedPlan);
-  };
+  return (
+    <label
+      className="bg-theme-very-light-grey rounded-lg flex py-3 gap-6 justify-center
+      text-right text-theme-denim text-sm font-medium"
+    >
+      <input
+        type="checkbox"
+        checked={isMonthly}
+        // onChange={handleToggle}
+        className="hidden"
+      />
+      <p className={`${isMonthly ? "text-sky-950" : "text-gray-400"}`}>
+        Monthly
+      </p>
+      <div
+        className="relative w-10 h-5 bg-theme-denim rounded-xl cursor-pointer"
+        onClick={onToggle}
+      >
+        <div
+          className={`absolute top-1 left-1 w-3 h-3 transition-transform
+          ${isMonthly ? "transform translate-x-0" : "transform translate-x-5"}
+          bg-white rounded-full`}
+        />
+      </div>
+      <p className={`${isMonthly ? "text-gray-400" : "text-sky-950"}`}>
+        Yearly
+      </p>
+    </label>
+  );
+};
 
+const PlanBox = ({ planInfo, isMonthly }) => {
+  const { name, monthly, yearly, extra, iconPath } = planInfo;
+
+  return (
+    <div className="flex gap-4 flex-row md:flex-col md:gap-10 justify-start ">
+      <Image src={iconPath} width={40} height={40} alt={name} />
+      <div className="">
+        <div className="font-medium text-theme-denim text-base leading-4">
+          {name}
+        </div>
+        <div className="text-theme-grey text-sm font-normal leading-tight pt-2">
+          ${isMonthly ? `${monthly}/mo` : `${yearly}/yr`}
+        </div>
+        {!isMonthly && (
+          <div className="text-xs font-normal leading-tight text-theme-denim pt-1">
+            {extra}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+const PlanRadioGroup = () => {
   const plans = [
     {
       name: "Arcade",
@@ -36,6 +93,25 @@ const PlanRadioGroup = ({ billingCycle }) => {
       iconPath: "/assets/images/icon-pro.svg",
     },
   ];
+
+  const [selectedPlan, setSelectedPlan] = useState("");
+
+  const { handleSubmit } = useForm({});
+
+  const onSubmit = () => {
+    console.log(selectedPlan);
+  };
+
+  const [isMonthly, setIsMonthly] = useState(false); // Lifted state
+
+  const handleToggle = () => {
+    setIsMonthly((prevIsMonthly) => {
+      console.log("isMonthly", prevIsMonthly);
+      const updatedIsMonthly = !prevIsMonthly;
+      console.log("isMonthlyAfterUpdate", updatedIsMonthly);
+      return updatedIsMonthly;
+    });
+  };
 
   return (
     <FormLayout
@@ -64,11 +140,11 @@ const PlanRadioGroup = ({ billingCycle }) => {
               }}
               className="hidden"
             />
-            <PlanBox planInfo={plan} billingCycle={billingCycle} />
+            <PlanBox planInfo={plan} isMonthly={isMonthly} />
           </label>
         ))}
       </form>
-      <SwitchToggle></SwitchToggle>
+      <SwitchToggle isMonthly={isMonthly} onToggle={handleToggle} />
     </FormLayout>
   );
 };
