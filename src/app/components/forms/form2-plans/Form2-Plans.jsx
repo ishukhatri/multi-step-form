@@ -7,17 +7,6 @@ import { useDispatch } from "react-redux";
 import { setStep } from "@/lib/redux/slices/formSlice";
 
 const SwitchToggle = ({ isMonthly, onToggle }) => {
-  // const [isMonthly, setIsMonthly] = useState(false);
-
-  // const handleToggle = () => {
-  //   setIsMonthly((prevIsMonthly) => {
-  //     console.log("isMonthly", prevIsMonthly);
-  //     const updatedIsMonthly = !prevIsMonthly;
-  //     console.log("isMonthlyAfterUpdate", updatedIsMonthly);
-  //     return updatedIsMonthly;
-  //   });
-  // };
-
   return (
     <label
       className="bg-theme-very-light-grey rounded-lg flex py-3 gap-6 justify-center
@@ -74,6 +63,30 @@ const PlanBox = ({ planInfo, isMonthly }) => {
   );
 };
 
+const PlanLabel = ({ plan, selectedPlan, isMonthly, onInputChange }) => {
+  return (
+    <label
+      className={`flex justify-start items-start pt-[14px] pb-[18px] px-4 rounded-lg 
+        border border-theme-light-grey hover:border-theme-purple 
+        md:min-w-[140px] md:min-h-[160px] ${
+          selectedPlan === plan.name
+            ? "bg-slate-50 border border-indigo-600"
+            : ""
+        }`}
+    >
+      <input
+        type="radio"
+        name="plan"
+        value={plan.name}
+        checked={selectedPlan === plan.name}
+        onChange={onInputChange}
+        className="hidden"
+      />
+      <PlanBox planInfo={plan} isMonthly={isMonthly} />
+    </label>
+  );
+};
+
 const PlanRadioGroup = () => {
   const plans = [
     {
@@ -120,6 +133,10 @@ const PlanRadioGroup = () => {
       return updatedIsMonthly;
     });
   };
+  const handlePlanChange = (e) => {
+    console.log(e.target.value);
+    setSelectedPlan(e.target.value);
+  };
 
   return (
     <FormLayout
@@ -131,29 +148,13 @@ const PlanRadioGroup = () => {
         className="flex flex-col md:flex-row md:gap-5 gap-3"
       >
         {plans.map((plan) => (
-          <label
+          <PlanLabel
             key={plan.name}
-            className={`flex justify-start items-start pt-[14px] pb-[18px] px-4 rounded-lg 
-          border border-theme-light-grey hover:border-theme-purple 
-          md:min-w-[140px] md:min-h-[160px] ${
-            selectedPlan === plan.name
-              ? "bg-slate-50 border border-indigo-600"
-              : ""
-          }`}
-          >
-            <input
-              type="radio"
-              name="plan"
-              value={plan.name}
-              checked={selectedPlan === plan.name}
-              onChange={(e) => {
-                console.log(e.target.value);
-                setSelectedPlan(e.target.value);
-              }}
-              className="hidden"
-            />
-            <PlanBox planInfo={plan} isMonthly={isMonthly} />
-          </label>
+            plan={plan}
+            selectedPlan={selectedPlan}
+            isMonthly={isMonthly}
+            onInputChange={handlePlanChange}
+          />
         ))}
       </form>
       <SwitchToggle isMonthly={isMonthly} onToggle={handleToggle} />
