@@ -70,7 +70,7 @@ const PlanLabel = ({ plan, selectedPlan, isMonthly, onInputChange }) => {
         border border-theme-light-grey hover:border-theme-purple 
         md:min-w-[140px] md:min-h-[160px] ${
           selectedPlan === plan.name
-            ? "bg-slate-50 border border-indigo-600"
+            ? "bg-slate-50 border border-theme-purple"
             : ""
         }`}
     >
