@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
 import FormLayout from "../FormLayout";
 import Image from "next/image";
+
+import { useForm, FormProvider, useFormContext } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { setStep } from "@/lib/redux/slices/formSlice";
 
 const SwitchToggle = ({ isMonthly, onToggle }) => {
   // const [isMonthly, setIsMonthly] = useState(false);
@@ -59,11 +62,13 @@ const PlanBox = ({ planInfo, isMonthly }) => {
         <div className="text-theme-grey text-sm font-normal leading-tight pt-2">
           ${isMonthly ? `${monthly}/mo` : `${yearly}/yr`}
         </div>
-        {!isMonthly && (
-          <div className="text-xs font-normal leading-tight text-theme-denim pt-1">
-            {extra}
-          </div>
-        )}
+        <div
+          className={`text-xs font-normal leading-tight text-theme-denim pt-1 ${
+            isMonthly ? "invisible" : ""
+          }`}
+        >
+          {extra}
+        </div>
       </div>
     </div>
   );
@@ -94,13 +99,16 @@ const PlanRadioGroup = () => {
     },
   ];
 
-  const [selectedPlan, setSelectedPlan] = useState("");
+  const methods = useForm();
+  const dispatch = useDispatch();
+  const onSubmit = (data) => {
+    console.log("Submitting data:", data);
+    dispatch(setStep(2));
+  };
+
+  const [selectedPlan, setSelectedPlan] = useState("Arcade");
 
   const { handleSubmit } = useForm({});
-
-  const onSubmit = () => {
-    console.log(selectedPlan);
-  };
 
   const [isMonthly, setIsMonthly] = useState(false); // Lifted state
 
@@ -125,9 +133,13 @@ const PlanRadioGroup = () => {
         {plans.map((plan) => (
           <label
             key={plan.name}
-            className="flex justify-start items-start pt-[14px] pb-[18px] px-4 rounded-lg 
-          hover:bg-theme-very-light-grey border border-theme-light-grey hover:border-theme-purple 
-          md:min-w-[140px] md:min-h-[160px]"
+            className={`flex justify-start items-start pt-[14px] pb-[18px] px-4 rounded-lg 
+          border border-theme-light-grey hover:border-theme-purple 
+          md:min-w-[140px] md:min-h-[160px] ${
+            selectedPlan === plan.name
+              ? "bg-slate-50 border border-indigo-600"
+              : ""
+          }`}
           >
             <input
               type="radio"

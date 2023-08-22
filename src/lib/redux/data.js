@@ -1,5 +1,5 @@
 const initialState = {
-  currentStep: 1,
+  currentStep: 2,
   completedSteps: [],
   formData: {
     step1: {
