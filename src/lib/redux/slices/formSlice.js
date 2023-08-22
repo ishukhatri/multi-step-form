@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const formSlice = createSlice({
   name: "form",
   initialState: {
-    currentStep: 2,
+    currentStep: 1,
     completedSteps: [],
     steps: [
       { title: "your info", stepIndex: 1 },
