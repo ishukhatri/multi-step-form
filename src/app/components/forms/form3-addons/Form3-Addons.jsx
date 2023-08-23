@@ -1,6 +1,8 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import { useForm, FormProvider, useFormContext } from "react-hook-form";
 import FormLayout from "../FormLayout";
+import { useDispatch } from "react-redux";
+import { setStep } from "@/lib/redux/slices/formSlice";
 
 const AddonBox = ({ addon, isMonthly }) => {
   return (
@@ -19,7 +21,8 @@ const AddonBox = ({ addon, isMonthly }) => {
   );
 };
 
-const AddonLabel = ({ addon, register, isMonthly }) => {
+const AddonLabel = ({ addon, isMonthly }) => {
+  const { register } = useFormContext();
   return (
     <label
       key={addon.name}
@@ -38,14 +41,11 @@ const AddonLabel = ({ addon, register, isMonthly }) => {
 };
 
 const AddonsForm = ({ isMonthly = false }) => {
-  const {
-    handleSubmit,
-    control,
-    register, // Destructure the register function
-  } = useForm();
-
+  const methods = useForm({});
+  const dispatch = useDispatch();
   const onSubmit = (data) => {
-    console.log("inner on submit called!!", data);
+    console.log("Submitting data:", data);
+    dispatch(setStep(4));
   };
 
   const title = "Pick add-ons";
@@ -78,20 +78,21 @@ const AddonsForm = ({ isMonthly = false }) => {
     <FormLayout
       title={title}
       description={desc}
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={methods.handleSubmit(onSubmit)}
     >
-      <form>
-        <div className="flex flex-col gap-3">
-          {addons.map((addon) => (
-            <AddonLabel
-              key={addon.name}
-              addon={addon}
-              register={register}
-              isMonthly={isMonthly}
-            />
-          ))}
-        </div>
-      </form>
+      <FormProvider {...methods}>
+        <form>
+          <div className="flex flex-col gap-3">
+            {addons.map((addon) => (
+              <AddonLabel
+                key={addon.name}
+                addon={addon}
+                isMonthly={isMonthly}
+              />
+            ))}
+          </div>
+        </form>
+      </FormProvider>
     </FormLayout>
   );
 };
