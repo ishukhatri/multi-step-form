@@ -1,8 +1,8 @@
 import React from "react";
 import { useForm, FormProvider, useFormContext } from "react-hook-form";
 import FormLayout from "../FormLayout";
-import { useDispatch } from "react-redux";
-import { setStep } from "@/lib/redux/slices/formSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { setStep, updateFormData } from "@/lib/redux/slices/formSlice";
 
 const AddonBox = ({ addon, isMonthly }) => {
   return (
@@ -40,39 +40,48 @@ const AddonLabel = ({ addon, isMonthly }) => {
   );
 };
 
-const AddonsForm = ({ isMonthly = false }) => {
-  const methods = useForm({});
+const title = "Pick add-ons";
+const desc = "Add-ons help enhance your gaming experience.";
+const addons = [
+  {
+    name: "OnlineService",
+    displayName: "Online service",
+    desc: "Access to multiplayer games",
+    monthly: 1,
+    yearly: 10,
+  },
+  {
+    name: "LargerStorage",
+    displayName: "Larger storage",
+    desc: "Extra 1TB of cloud save",
+    monthly: 2,
+    yearly: 20,
+  },
+  {
+    name: "CustomizableProfile",
+    displayName: "Customizable profile",
+    desc: "Custom theme on your profile",
+    monthly: 2,
+    yearly: 20,
+  },
+];
+
+const AddonsForm = () => {
   const dispatch = useDispatch();
+  const isMonthly = useSelector((state) => state.form.formData.step2.isMonthly);
+  const data = useSelector((state) => state.form.formData.step3);
+
+  const methods = useForm({
+    defaultValues: {
+      ...data,
+    },
+  });
+
   const onSubmit = (data) => {
     console.log("Submitting data:", data);
+    dispatch(updateFormData({ step: 3, data }));
     dispatch(setStep(4));
   };
-
-  const title = "Pick add-ons";
-  const desc = "Add-ons help enhance your gaming experience.";
-  const addons = [
-    {
-      name: "OnlineService",
-      displayName: "Online service",
-      desc: "Access to multiplayer games",
-      monthly: 1,
-      yearly: 10,
-    },
-    {
-      name: "LargerStorage",
-      displayName: "Larger storage",
-      desc: "Extra 1TB of cloud save",
-      monthly: 2,
-      yearly: 20,
-    },
-    {
-      name: "CustomizableProfile",
-      displayName: "Customizable profile",
-      desc: "Custom theme on your profile",
-      monthly: 2,
-      yearly: 20,
-    },
-  ];
 
   return (
     <FormLayout

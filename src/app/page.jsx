@@ -8,7 +8,7 @@ import Stepper from "@/app/components/stepper/Stepper";
 import FinishingUp from "@/app/components/forms/finishing-up/FinishingUp";
 import Form from "@/app/components/forms/form1-persoanl-info/Form1-PersonalInfo";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const Main = () => {
   const currentStepIndex = useSelector((state) => state.form.currentStep);

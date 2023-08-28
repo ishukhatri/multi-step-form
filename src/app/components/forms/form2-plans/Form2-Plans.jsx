@@ -3,8 +3,8 @@ import FormLayout from "../FormLayout";
 import Image from "next/image";
 
 import { useForm, FormProvider, useFormContext } from "react-hook-form";
-import { useDispatch } from "react-redux";
-import { setStep } from "@/lib/redux/slices/formSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { setStep, updateFormData } from "@/lib/redux/slices/formSlice";
 
 const SwitchToggle = () => {
   const { register, watch } = useFormContext();
@@ -114,15 +114,17 @@ const plans = [
 ];
 
 const PlanRadioGroup = () => {
+  const data = useSelector((state) => state.form.formData.step2);
   const methods = useForm({
     defaultValues: {
-      plan: "Arcade",
-      isMonthly: false,
+      plan: data.plan || "Arcade",
+      isMonthly: data.isMonthly || false,
     },
   });
   const dispatch = useDispatch();
   const onSubmit = (data) => {
     console.log("Submitting data:", data);
+    dispatch(updateFormData({ step: 2, data }));
     dispatch(setStep(3));
   };
 

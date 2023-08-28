@@ -1,11 +1,19 @@
 import React from "react";
 import FormLayout from "../FormLayout";
+import { useDispatch } from "react-redux";
+import { setStep } from "@/lib/redux/slices/formSlice";
 
 const FinishingUp = () => {
+  const dispatch = useDispatch();
+  const onSubmit = () => {
+    dispatch(setStep(5));
+  };
+
   return (
     <FormLayout
       title={"Finishing up"}
       description={"Double-check everything looks OK before confirming."}
+      onSubmit={onSubmit}
     >
       <div className="flex flex-col gap-6">
         <div className="bg-theme-light-grey rounded-lg p-4 text-gray-400">

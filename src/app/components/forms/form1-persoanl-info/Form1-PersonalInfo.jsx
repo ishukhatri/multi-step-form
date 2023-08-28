@@ -1,7 +1,7 @@
 import FormLayout from "../FormLayout";
 import { useForm, FormProvider, useFormContext } from "react-hook-form";
-import { useDispatch } from "react-redux";
-import { setStep } from "@/lib/redux/slices/formSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { setStep, updateFormData } from "@/lib/redux/slices/formSlice";
 
 const PersonalInfoInput = ({ label, name, placeholder, required, pattern }) => {
   const {
@@ -36,10 +36,18 @@ const PersonalInfoInput = ({ label, name, placeholder, required, pattern }) => {
 };
 
 const Form = () => {
-  const methods = useForm();
   const dispatch = useDispatch();
+  const data = useSelector((state) => state.form.formData.step1);
+
+  const methods = useForm({
+    defaultValues: {
+      ...data,
+    },
+  });
+
   const onSubmit = (data) => {
     console.log("Submitting data:", data);
+    dispatch(updateFormData({ step: 1, data }));
     dispatch(setStep(2));
   };
 

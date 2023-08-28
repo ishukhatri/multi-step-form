@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import FormGroupIntro from "../common/form-group-intro/FormGroupIntro";
 
 const FormLayout = ({ title, description, onSubmit, children }) => {
+  const dispatch = useDispatch();
   const currentStepIndex = useSelector((state) => state.form.currentStep);
 
   return (
