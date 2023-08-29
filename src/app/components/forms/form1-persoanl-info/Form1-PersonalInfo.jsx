@@ -2,6 +2,7 @@ import FormLayout from "../FormLayout";
 import { useForm, FormProvider, useFormContext } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { setStep, updateFormData } from "@/lib/redux/slices/formSlice";
+import { selectStepData } from "@/lib/redux/selectors/formSelector";
 
 const PersonalInfoInput = ({ label, name, placeholder, required, pattern }) => {
   const {
@@ -37,7 +38,7 @@ const PersonalInfoInput = ({ label, name, placeholder, required, pattern }) => {
 
 const Form = () => {
   const dispatch = useDispatch();
-  const data = useSelector((state) => state.form.formData.step1);
+  const data = useSelector(selectStepData(1));
 
   const methods = useForm({
     defaultValues: {

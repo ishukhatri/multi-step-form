@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useForm, FormProvider, useFormContext } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { setStep, updateFormData } from "@/lib/redux/slices/formSlice";
+import { selectStepData } from "@/lib/redux/selectors/formSelector";
 
 const SwitchToggle = () => {
   const { register, watch } = useFormContext();
@@ -114,11 +115,10 @@ const plans = [
 ];
 
 const PlanRadioGroup = () => {
-  const data = useSelector((state) => state.form.formData.step2);
+  const data = useSelector(selectStepData(2));
   const methods = useForm({
     defaultValues: {
-      plan: data.plan || "Arcade",
-      isMonthly: data.isMonthly || false,
+      ...data,
     },
   });
   const dispatch = useDispatch();

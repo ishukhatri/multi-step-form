@@ -1,10 +1,11 @@
 import React from "react";
 import FormLayout from "../FormLayout";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setStep } from "@/lib/redux/slices/formSlice";
 
 const FinishingUp = () => {
   const dispatch = useDispatch();
+  const data = useSelector((state) => state.form.formData);
   const onSubmit = () => {
     dispatch(setStep(5));
   };
@@ -20,7 +21,7 @@ const FinishingUp = () => {
           <div className="flex flex-row justify-between items-end">
             <div className="flex flex-col gap-1 ">
               <p className="text-sky-950 text-sm font-medium">
-                Arcade (Monthly)
+                {data.step2.plan} {data.isMonthly ? "(Monthly)" : "Yearly"}
               </p>
               <p className="text-sm font-normal underline leading-tight">
                 Change

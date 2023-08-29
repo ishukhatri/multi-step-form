@@ -11,9 +11,13 @@ const formSlice = createSlice({
       { title: "summary", stepIndex: 4 },
     ],
     formData: {
-      step1: {},
-      step2: {},
-      step3: {},
+      step1: { name: "", email: "", phone: "" },
+      step2: { plan: "Arcade", isMonthly: false },
+      step3: {
+        OnlineService: false,
+        LargerStorage: false,
+        CustomizableProfile: false,
+      },
     },
   },
   reducers: {

@@ -3,6 +3,10 @@ import { useForm, FormProvider, useFormContext } from "react-hook-form";
 import FormLayout from "../FormLayout";
 import { useDispatch, useSelector } from "react-redux";
 import { setStep, updateFormData } from "@/lib/redux/slices/formSlice";
+import {
+  selectStepData,
+  selectIsMonthly,
+} from "@/lib/redux/selectors/formSelector";
 
 const AddonBox = ({ addon, isMonthly }) => {
   return (
@@ -68,8 +72,8 @@ const addons = [
 
 const AddonsForm = () => {
   const dispatch = useDispatch();
-  const isMonthly = useSelector((state) => state.form.formData.step2.isMonthly);
-  const data = useSelector((state) => state.form.formData.step3);
+  const isMonthly = useSelector(selectIsMonthly);
+  const data = useSelector(selectStepData(3));
 
   const methods = useForm({
     defaultValues: {
