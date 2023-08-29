@@ -37,11 +37,9 @@ const BottomBar = ({ onSubmit }) => {
 const FormLayout = ({ title, description, onSubmit, children }) => {
   return (
     <div className="h-full flex flex-col justify-between">
-      <FormLayoutMainPart
-        title={title}
-        description={description}
-        children={children}
-      ></FormLayoutMainPart>
+      <FormLayoutMainPart title={title} description={description}>
+        {children}
+      </FormLayoutMainPart>
       <BottomBar onSubmit={onSubmit}></BottomBar>
     </div>
   );
