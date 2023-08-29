@@ -3,9 +3,9 @@ import React from "react";
 
 import PlanRadioGroup from "@/app/components/forms/form2-plans/Form2-Plans";
 import AddonsForm from "@/app/components/forms/form3-addons/Form3-Addons";
-import ThankYou from "@/app/components/forms/thank-you/ThankYou";
+import ThankYou from "@/app/components/thank-you/ThankYou";
 import Stepper from "@/app/components/stepper/Stepper";
-import FinishingUp from "@/app/components/forms/finishing-up/FinishingUp";
+import FinishingUp from "@/app/components/finishing-up/FinishingUp";
 import Form from "@/app/components/forms/form1-persoanl-info/Form1-PersonalInfo";
 import { selectCurrentStep } from "@/lib/redux/selectors/formSelector";
 
