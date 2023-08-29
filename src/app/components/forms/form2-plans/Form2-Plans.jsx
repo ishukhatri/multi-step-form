@@ -6,6 +6,7 @@ import { useForm, FormProvider, useFormContext } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { setStep, updateFormData } from "@/lib/redux/slices/formSlice";
 import { selectStepData } from "@/lib/redux/selectors/formSelector";
+import { title, plans, description } from "@/data/plans";
 
 const SwitchToggle = () => {
   const { register, watch } = useFormContext();
@@ -90,30 +91,6 @@ const PlanLabel = ({ plan }) => {
   );
 };
 
-const plans = [
-  {
-    name: "Arcade",
-    monthly: 9,
-    yearly: 90,
-    extra: "2 months free",
-    iconPath: "/assets/images/icon-arcade.svg",
-  },
-  {
-    name: "Advanced",
-    monthly: 12,
-    yearly: 120,
-    extra: "2 months free",
-    iconPath: "/assets/images/icon-advanced.svg",
-  },
-  {
-    name: "Pro",
-    monthly: 15,
-    yearly: 150,
-    extra: "2 months free",
-    iconPath: "/assets/images/icon-pro.svg",
-  },
-];
-
 const PlanRadioGroup = () => {
   const data = useSelector(selectStepData(2));
   const methods = useForm({
@@ -130,8 +107,8 @@ const PlanRadioGroup = () => {
 
   return (
     <FormLayout
-      title={"Select your plan"}
-      description={"You have the option of monthly or yearly billing."}
+      title={title}
+      description={description}
       onSubmit={methods.handleSubmit(onSubmit)}
     >
       <FormProvider {...methods}>

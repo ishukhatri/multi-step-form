@@ -3,6 +3,7 @@ import { useForm, FormProvider, useFormContext } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { setStep, updateFormData } from "@/lib/redux/slices/formSlice";
 import { selectStepData } from "@/lib/redux/selectors/formSelector";
+import { title, description } from "@/data/personalInfo";
 
 const PersonalInfoInput = ({ label, name, placeholder, required, pattern }) => {
   const {
@@ -54,8 +55,8 @@ const Form = () => {
 
   return (
     <FormLayout
-      title={"Personal info"}
-      description={"Please provide your name, email address, and phone number."}
+      title={title}
+      description={description}
       onSubmit={methods.handleSubmit(onSubmit)}
     >
       <FormProvider {...methods}>

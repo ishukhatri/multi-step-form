@@ -2,6 +2,7 @@ import React from "react";
 import FormLayout from "../common/FormLayout";
 import { useDispatch, useSelector } from "react-redux";
 import { setStep } from "@/lib/redux/slices/formSlice";
+import { title, description } from "@/data/finishingUp";
 
 const FinishingUp = () => {
   const dispatch = useDispatch();
@@ -11,11 +12,7 @@ const FinishingUp = () => {
   };
 
   return (
-    <FormLayout
-      title={"Finishing up"}
-      description={"Double-check everything looks OK before confirming."}
-      onSubmit={onSubmit}
-    >
+    <FormLayout title={title} description={description} onSubmit={onSubmit}>
       <div className="flex flex-col gap-6">
         <div className="bg-theme-light-grey rounded-lg p-4 text-gray-400">
           <div className="flex flex-row justify-between items-end">

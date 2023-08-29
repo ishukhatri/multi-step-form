@@ -7,6 +7,7 @@ import {
   selectStepData,
   selectIsMonthly,
 } from "@/lib/redux/selectors/formSelector";
+import { title, addons, description } from "@/data/addons";
 
 const AddonBox = ({ addon, isMonthly }) => {
   return (
@@ -44,32 +45,6 @@ const AddonLabel = ({ addon, isMonthly }) => {
   );
 };
 
-const title = "Pick add-ons";
-const desc = "Add-ons help enhance your gaming experience.";
-const addons = [
-  {
-    name: "OnlineService",
-    displayName: "Online service",
-    desc: "Access to multiplayer games",
-    monthly: 1,
-    yearly: 10,
-  },
-  {
-    name: "LargerStorage",
-    displayName: "Larger storage",
-    desc: "Extra 1TB of cloud save",
-    monthly: 2,
-    yearly: 20,
-  },
-  {
-    name: "CustomizableProfile",
-    displayName: "Customizable profile",
-    desc: "Custom theme on your profile",
-    monthly: 2,
-    yearly: 20,
-  },
-];
-
 const AddonsForm = () => {
   const dispatch = useDispatch();
   const isMonthly = useSelector(selectIsMonthly);
@@ -90,7 +65,7 @@ const AddonsForm = () => {
   return (
     <FormLayout
       title={title}
-      description={desc}
+      description={description}
       onSubmit={methods.handleSubmit(onSubmit)}
     >
       <FormProvider {...methods}>
