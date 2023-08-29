@@ -1,5 +1,5 @@
 import React from "react";
-import FormLayout from "../forms/FormLayout";
+import FormLayout from "../common/FormLayout";
 import { useDispatch, useSelector } from "react-redux";
 import { setStep } from "@/lib/redux/slices/formSlice";
 

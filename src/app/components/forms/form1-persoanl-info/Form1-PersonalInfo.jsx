@@ -1,4 +1,4 @@
-import FormLayout from "../FormLayout";
+import FormLayout from "../../common/FormLayout";
 import { useForm, FormProvider, useFormContext } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { setStep, updateFormData } from "@/lib/redux/slices/formSlice";

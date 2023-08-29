@@ -2,7 +2,7 @@ import React from "react";
 import { setStep } from "@/lib/redux/slices/formSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-import FormGroupIntro from "../common/form-group-intro/FormGroupIntro";
+import FormGroupIntro from "./form-group-intro/FormGroupIntro";
 
 const FormLayout = ({ title, description, onSubmit, children }) => {
   const dispatch = useDispatch();

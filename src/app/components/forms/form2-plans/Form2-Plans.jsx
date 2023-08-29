@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import FormLayout from "../FormLayout";
+import FormLayout from "../../common/FormLayout";
 import Image from "next/image";
 
 import { useForm, FormProvider, useFormContext } from "react-hook-form";
